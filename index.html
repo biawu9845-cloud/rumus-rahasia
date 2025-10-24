@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rumus Rahasia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 80px;
+      background-color: #fff;
+    }
+    .container {
+      max-width: 400px;
+      margin: auto;
+      border: 2px solid black;
+      border-radius: 10px;
+      padding: 40px;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      margin-top: 10px;
+      border: 2px solid black;
+      font-size: 16px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-size: 18px;
+      border: 2px solid black;
+      padding: 10px;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 30px;
+      font-size: 18px;
+      border: 2px solid black;
+      cursor: pointer;
+      background: white;
+    }
+    #pesan {
+      display: none;
+      font-size: 18px;
+      margin-top: 40px;
+      padding: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="halaman1">
+    <h2>Rumus apa yang kamu tau?</h2>
+    <input type="text" id="rumusInput" placeholder="Masukkan Rumus: .......">
+    <label><input type="checkbox" id="setuju" disabled> Centang jika setuju</label>
+    <button id="nextBtn" disabled>Next ></button>
+  </div>
+
+  <div id="pesan">
+    <p>HALO NINDY, AKU BUKANYA TIDAK PEKA<br>
+    TAPI AKU MAU LIHAT SEBERAPA KAU SUKA SAMA AKU.<br>
+    MAAF YA JIKA SIFAT AKU BIKIN KAU RISIH<br><br>
+    Btw, MAKASI SUDAH SUKA SAMA AKU ❤️</p>
+  </div>
+
+  <script>
+    const input = document.getElementById("rumusInput");
+    const checkbox = document.getElementById("setuju");
+    const nextBtn = document.getElementById("nextBtn");
+    const halaman1 = document.getElementById("halaman1");
+    const pesan = document.getElementById("pesan");
+
+    const kodeRahasia = "f(x) = x^2 + 2x - 3";
+
+    input.addEventListener("input", () => {
+      if (input.value.trim() === kodeRahasia) {
+        checkbox.disabled = false;
+        checkbox.checked = true;
+        nextBtn.disabled = false;
+      } else {
+        checkbox.disabled = true;
+        checkbox.checked = false;
+        nextBtn.disabled = true;
+      }
+    });
+
+    nextBtn.addEventListener("click", () => {
+      halaman1.style.display = "none";
+      pesan.style.display = "block";
+    });
+  </script>
+</body>
+</html>
